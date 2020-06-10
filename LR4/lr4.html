@@ -1,0 +1,230 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head> 
+	<meta charset="utf-8">
+	<title>Лабораторная 4</title>
+</head>
+
+<body>
+    <section style="height: 250vh;">
+    	<div class="content">
+        	<h1 class="heading">Лабораторная 4</h1>
+
+
+        	<ul class="cl list" id="cl"><li><p>Задание 1:</p></li></ul>  
+
+            <script type="text/javascript">             // ЗАДАНИЕ 1
+            	
+                function MyFirstFunction() {
+        			document.write("<p>Hello from MyFirstFunction!");
+        			document.write("<p>How are you?");
+        			document.write("<p>Goodbye!");
+				}
+
+				function MySecondFunction() {
+					document.write("<p>Hello from MySecondFunction!");
+				}
+
+				MyFirstFunction();
+				document.write("<hr/>");
+				MySecondFunction();
+				document.write("<hr/>");
+
+
+            </script>	
+
+
+
+            <ul class="cl list" id="cl">
+                <li><p>Задание 2, 3:</p></li>
+                <li style="margin-top: 0px;"><a onclick="zad3()" class="button">Запустить</a></li> 
+                <li><hr/></li>  
+            </ul>
+
+            <p id="outName">Имя: не введено</p>
+            <p id="outSname">Фамилия: не введено</p>
+            <p id="outAge">Возраст: не введен</p>
+
+            <script type="text/javascript">				// ЗАДАНИЕ 2
+            	
+                let name, sname, age;
+        
+    			function ask() {
+        			name = prompt('Введите свое имя: ');
+        			sname = prompt('Введите свою фамилию: ');
+        			age = prompt('Введите своЙ свозраст: ');
+   				}
+
+    			function say() {
+                    document.getElementById('outName').innerHTML = "<p>Имя: " + name + "<br />";
+                    document.getElementById('outSname').innerHTML = "<p>Фамилия: " + sname + "<br />";
+                    document.getElementById('outAge').innerHTML = "<p>Возраст: " + age + "<br />";
+    			}
+
+                function zad3() {
+    			    do {                                    // ЗАДАНИЕ 3
+       			      	ask();
+        			    say();
+        			    repeater = confirm('Пройти заполнение еще раз?');
+    			    } while (repeater); 
+                }
+
+                // Тег <hr /> пишет на странице горизонтальную черту
+                // на следующей строке
+
+            </script>
+
+
+
+            <ul class="cl list" id="cl"><li><p>Задание 4:</p></li></ul>
+
+            <script type="text/javascript">             // ЗАДАНИЕ 4
+                
+                let a = 5;
+                let b = 15;
+                let x1, x2;
+
+                function sum1() {
+                    let result = a + b;
+                    document.write("<p>Sum1 result: " + result);
+                }
+
+                function sum2(x1, x2) {
+                    let result = x1 + x2;
+                    document.write("<p>Sum2 result: " + result);
+                }
+
+                sum1();         // 20
+                sum2();         // NaN (т.к. параметры остаются undefined и
+                sum2(a, b);     // 20            при складывании возвращают NaN)
+
+            </script>
+
+
+
+            <ul class="cl list" id="cl"><li><p>Задание 5:</p></li></ul>
+
+            <script type="text/javascript">                 // ЗАДАНИЕ 5
+                
+                function print(msg, count = 3) {
+
+                    for (let i = 0; i < count; i++) {
+                        document.write("<p>" + msg);
+                    }
+
+                    document.write("<hr/>");
+
+                }
+
+                print("hello");       // Выведется по умолчанию 3 раза
+                print("world", 4);   // Выведется 4 раза
+
+            </script>		
+
+
+
+            <ul class="cl list" id="cl"><li><p>Задание 6:</p></li></ul>
+
+            <script type="text/javascript">                 // ЗАДАНИЕ 6
+
+                function sum(a, b) {
+                    return a + b;
+                }
+
+                function pow(a, b) {
+                    let result = a;
+                    for(let i = 1; i < b; i++) { result *= a; }
+                    return result;
+                }
+
+                let sumResult = sum(2, 3);  // 5
+                let powResult = pow(2, 4);  // 16
+
+                document.write("<p>Результат ф-ии суммирования = " + sumResult);
+                document.write("<p>Результат ф-ии степени = " + powResult);
+
+            </script>   
+
+
+
+             <ul class="cl list" id="cl">
+                <li><p>Задание 7:</p></li>	                  <!-- ЗАДАНИЕ 7 -->
+                <li>
+                    <input type="text" id="a" style="max-width: 100px;" placeholder= "0">
+                    <input type="text" id="operator" style="max-width: 100px;" placeholder= "+, root">
+                    <input type="text" id="b"style="max-width: 100px;" placeholder= "0">
+                </li>
+                <li><a onclick="zad7()" class="button">Вычислить</a></li>
+                <li><hr/></li>
+                <li><p id="out">Результат</p></li>
+            </ul>
+
+            <script type="text/javascript">
+                
+                let num1, num2, operator, result;
+
+                function zad7() {
+
+                num1 = document.getElementById('a').value;
+                num1 = +num1;
+                num2 = document.getElementById('b').value;
+                num2 = +num2;
+                operator = document.getElementById('operator').value;
+
+                function pl() {
+                    return num1 + num2;
+                }
+
+                function mi() {
+                    return num1 - num2;
+                }
+
+                function pr() {
+                    return num1 * num2;
+                }
+
+                function dv() {
+                    return num1 / num2;
+                }
+
+                switch(operator) {
+
+                    case '+':
+                        result = pl();
+                        break;
+
+                    case '-':
+                        result = mi();
+                        break;
+
+                    case '*':
+                        result = pr();
+                        break;
+
+                    case '/':
+                        result = dv();
+                        break;
+
+                    case '^': 
+                        result = Math.pow(num1, num2); 
+                        break;
+
+                    case 'root': // В ф-ии степени 2ой аргумент - 1/степень
+                        result = Math.pow(num1, 1/num2);
+                        break;
+
+                    default:
+                        result = 'wrong_operator';
+
+                }
+
+                if (result == undefined) { document.getElementById('out').innerHTML = "Не хватает данных"}
+                else if (result == 'wrong_operator') { document.getElementById('out').innerHTML = "Недост. оператор (дост.: + - * / ^ root)" }
+                else if (isNaN(result)) { document.getElementById('out').innerHTML = "Вы ввели недопустимые значения" }
+                else { document.getElementById('out').innerHTML = "Результат: " + result; }
+
+            }
+
+            </script>
+
+
